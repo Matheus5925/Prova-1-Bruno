@@ -1,38 +1,14 @@
-.App {
-  text-align: center;
+.app__provas {
+  padding: 1.7rem 3.5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.app__provas button{
+  border: none;
+  background-color: #242424;
+  color: #fff;
+  padding: 1.4rem 4rem;
+  margin-right: 2rem;
+  border-radius: .5rem;
+  cursor: pointer;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

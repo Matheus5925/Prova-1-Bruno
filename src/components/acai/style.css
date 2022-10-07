@@ -1,0 +1,17 @@
+.acai__inputs:nth-child(1) {
+    margin-top: 2rem;
+}
+
+.acai__inputs:nt
+ 
+.acai__inputs-qtd input{
+    width: 10rem;
+    margin-bottom: .4rem;
+    padding: .2rem .4rem;
+    border: #242424 solid 2px;
+    border-radius: .5rem;
+}
+
+.calcular {
+    margin-top: 3rem;
+}
