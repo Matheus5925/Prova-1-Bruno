@@ -1,5 +1,8 @@
 .app__provas {
   padding: 1.7rem 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
 }
 
 .app__provas button{
