@@ -12,6 +12,8 @@ import Gramas from './components/gramas/index';
 import CardSalario from './components/salario/index';
 import CardParada from './components/paradas';
 import CardFebre from './components/febre';
+import Ingressos from './components/ingressos';
+import Ganhosgastos from './components/gastos';
 
 function App() {
   const [viewAcai, setViewAcai] = useState(false);
@@ -20,6 +22,8 @@ function App() {
   const [viewSalario, setViewSalario] = useState(false);
   const [viewParadas, setViewParadas] = useState(false);
   const [viewFebre, setViewFebre] = useState(false);
+  const [viewIngressos, setViewIngressos] = useState(false);
+  const [viewGanhosGastos,setViewGanhosGastos ] = useState(false);
 
   const click = e => {
     const id = e.target.id;
@@ -35,18 +39,26 @@ function App() {
       setViewGramas(false);
     else if (id === 'open-gramas')
       setViewGramas(true);
-    else if(id === 'open-salario')
+    else if (id === 'open-salario')
       setViewSalario(true);
-    else if(id === 'close-salario')
+    else if (id === 'close-salario')
       setViewSalario(false);
-    else if(id === 'close-paradas')
+    else if (id === 'close-paradas')
       setViewParadas(false);
-    else if(id === 'open-paradas')
+    else if (id === 'open-paradas')
       setViewParadas(true)
-    else if(id === 'close-febre')
+    else if (id === 'close-febre')
       setViewFebre(false);
-    else if(id === 'open-febre')
+    else if (id === 'open-febre')
       setViewFebre(true);
+    else if (id === 'open-ingressos')
+      setViewIngressos(true)
+    else if (id === 'close-ingressos')
+      setViewIngressos(false);
+    else if(id === 'close-ganhos-gastos')
+      setViewGanhosGastos(false);
+    else if(id === 'open-ganhos-gastos')
+      setViewGanhosGastos(true)
   }
 
   return (
@@ -58,6 +70,8 @@ function App() {
       {viewSalario && (<CardSalario close={e => click(e)}/>)}
       {viewParadas && (<CardParada close={e => click(e)}/>)}
       {viewFebre && (<CardFebre close={e => click(e)}/>)}
+      {viewIngressos && (<Ingressos close={e => click(e)}/>)}
+      {viewGanhosGastos && (<Ganhosgastos close={e => click(e)}/>)}
       <div className='app__provas'>
         <button onClick={click} id='open-acai'>Ver Açai</button>
         <button onClick={click} id='open-signo'>Ver Signo</button>
@@ -65,6 +79,8 @@ function App() {
         <button onClick={click} id='open-salario'> Ver Salario </button>
         <button onClick={click} id='open-paradas'> Ver Paradas </button>
         <button onClick={click} id='open-febre'> Ver Febre </button>
+        <button onClick={click} id='open-ingressos'>Ver Total Ingressos</button>
+        <button onClick={click} id='open-ganhos-gastos'>Ver Total Gastos</button>
       </div>
     </div>
   );
