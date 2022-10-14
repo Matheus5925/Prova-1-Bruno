@@ -10,8 +10,7 @@ export const VerificarSigno = (mes, dia) => {
 }
 
 export const TotalGramas = gramas => {
-    gramas 
     if(gramas > 1000)
         return (gramas / 100) * 3;
     return (gramas / 100) * 3.5
-};
+}
