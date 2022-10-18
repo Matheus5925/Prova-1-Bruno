@@ -85,3 +85,51 @@ export const GanhosGastos = (ganhos, gastos) =>{
 
     return msg;
 }
+
+export const ContarAte = (inicio, fim) =>{
+    inicio = Number(inicio);
+    fim = Number(fim);
+
+    if(inicio > fim || isNaN(inicio) || isNaN(fim))
+        return 'Valores inválidos';
+    var values = '';
+    for (let i = inicio; i <= fim; i++) {
+        values += `${i}\r\n`;
+    }
+    return values;
+}
+
+export const ConstruirLinha = qtd =>{
+    qtd = Number(qtd);
+    if(qtd <= 0 || isNaN(qtd))
+        return 'Quantidade inválida';
+
+    let linha = '';
+    for (let i = 0; i < qtd; i++) {
+        linha += '* ';         
+    }
+    return linha;
+}
+
+export const retangulo = (base, altura) => {
+    try {
+        base = Number(base)
+        altura = Number(altura)
+        if (isNaN(base) || isNaN(altura) || base < 0 || altura < 0)
+            throw new Error('Credenciais Invalidas')
+        let resp = ''
+        let linha = 0
+        for (let i = 0; i < base; i++) {
+            resp+='* '
+            if (i === base - 1 && linha < altura) {
+                resp+='\r\n'
+                linha++
+                if (linha !== altura)
+                    i = -1
+            }
+        }
+        return resp
+    } catch (err) {
+        console.log(err)
+    }
+}

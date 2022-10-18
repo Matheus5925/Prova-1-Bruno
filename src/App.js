@@ -14,6 +14,9 @@ import CardParada from './components/paradas';
 import CardFebre from './components/febre';
 import Ingressos from './components/ingressos';
 import Ganhosgastos from './components/gastos';
+import ContarAteOutro from './components/contarate';
+import DesenharLinha from './components/linha';
+import DesenharRetangulo from './components/retangulo';
 
 function App() {
   const [viewAcai, setViewAcai] = useState(false);
@@ -24,6 +27,9 @@ function App() {
   const [viewFebre, setViewFebre] = useState(false);
   const [viewIngressos, setViewIngressos] = useState(false);
   const [viewGanhosGastos,setViewGanhosGastos ] = useState(false);
+  const [viewContar, setContar] = useState(false);
+  const [viewLinha, setViewLinha] = useState(false);
+  const [viewRetangulo, setViewRetangulo] = useState(false);
 
   const click = e => {
     const id = e.target.id;
@@ -58,7 +64,19 @@ function App() {
     else if(id === 'close-ganhos-gastos')
       setViewGanhosGastos(false);
     else if(id === 'open-ganhos-gastos')
-      setViewGanhosGastos(true)
+      setViewGanhosGastos(true);
+    else if (id === 'close-contar')
+      setContar(false);
+    else if (id === 'open-contar')
+      setContar(true);
+    else if (id === 'close-linha')
+      setViewLinha(false);
+    else if (id === 'open-linha')
+      setViewLinha(true)
+    else if (id === 'close-retangulo')
+      setViewRetangulo(false);
+    else if (id === 'open-retangulo')
+      setViewRetangulo(true)
   }
 
   return (
@@ -72,6 +90,10 @@ function App() {
       {viewFebre && (<CardFebre close={e => click(e)}/>)}
       {viewIngressos && (<Ingressos close={e => click(e)}/>)}
       {viewGanhosGastos && (<Ganhosgastos close={e => click(e)}/>)}
+      {viewContar && (<ContarAteOutro close={e => click(e)}/>)}
+      {viewLinha && (<DesenharLinha close={e => click(e)}/>)}
+      {viewRetangulo && (<DesenharRetangulo close={e => click(e)}/>)}
+
       <div className='app__provas'>
         <button onClick={click} id='open-acai'>Ver Açai</button>
         <button onClick={click} id='open-signo'>Ver Signo</button>
@@ -81,6 +103,9 @@ function App() {
         <button onClick={click} id='open-febre'> Ver Febre </button>
         <button onClick={click} id='open-ingressos'>Ver Total Ingressos</button>
         <button onClick={click} id='open-ganhos-gastos'>Ver Total Gastos</button>
+        <button onClick={click} id='open-contar'>Ver Contar</button>
+        <button onClick={click} id='open-linha'>Ver Desenhar Linha</button>
+        <button onClick={click} id='open-retangulo'>Ver Desenhar retangulo</button>
       </div>
     </div>
   );
