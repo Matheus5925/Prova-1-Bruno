@@ -115,7 +115,7 @@ export const retangulo = (base, altura) => {
     try {
         base = Number(base)
         altura = Number(altura)
-        if (isNaN(base) || isNaN(altura) || base < 0 || altura < 0)
+        if (isNaN(base) || isNaN(altura) || base < 0 || altura < 0 || base % 1 !== 0 || altura % 1 !== 0)
             throw new Error('Credenciais Invalidas')
         let resp = ''
         let linha = 0
@@ -131,5 +131,20 @@ export const retangulo = (base, altura) => {
         return resp
     } catch (err) {
         console.log(err)
+    }
+}
+
+export const calcularCafe = (n, l, d) => {
+    try {
+        n = Number(n)
+        l = Number(l)
+        d = Number(d)
+        if (isNaN(n) || isNaN(l) || isNaN(d) || n < 1 || l < 1 || d < 1 || n % 1 !== 0 || l % 1 !== 0 || d % 1 !== 0)
+            throw new Error('Credenciais Invalidas')
+        const min = n * d
+        let r = l * 1000 >= min ? 1 : Math.ceil(min / (l * 1000))
+        return l * r
+    } catch (err) {
+        console.log(err.message)
     }
 }
