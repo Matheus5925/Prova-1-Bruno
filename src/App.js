@@ -18,6 +18,7 @@ import ContarAteOutro from './components/contarate';
 import DesenharLinha from './components/linha';
 import DesenharRetangulo from './components/retangulo';
 import CalcularCafe from './components/cafe';
+import MediaTurma from './components/MediaSala';
 
 function App() {
   const [viewAcai, setViewAcai] = useState(false);
@@ -31,7 +32,8 @@ function App() {
   const [viewContar, setContar] = useState(false);
   const [viewLinha, setViewLinha] = useState(false);
   const [viewRetangulo, setViewRetangulo] = useState(false);
-  const [viewCafe, setViewCafe] = useState(false)
+  const [viewCafe, setViewCafe] = useState(false);
+  const [viewMedia, setViewMedia] = useState(false);
 
   const click = e => {
     const id = e.target.id;
@@ -82,7 +84,11 @@ function App() {
       else if (id === 'close-cafe')
       setViewCafe(false);
     else if (id === 'open-cafe')
-      setViewCafe(true)
+      setViewCafe(true);
+    else if(id === 'open-media')
+      setViewMedia(true);
+    else if(id === 'close-media')
+      setViewMedia(false);
   }
 
   return (
@@ -100,6 +106,7 @@ function App() {
       {viewLinha && (<DesenharLinha close={e => click(e)}/>)}
       {viewRetangulo && (<DesenharRetangulo close={e => click(e)} />)}
       {viewCafe && (<CalcularCafe close={e => click(e)}/>)}
+      {viewMedia&& (<MediaTurma close={e => click(e)}/>)}
 
       <div className='app__provas'>
         <button onClick={click} id='open-acai'>Ver Açai</button>
@@ -114,6 +121,7 @@ function App() {
         <button onClick={click} id='open-linha'>Ver Desenhar Linha</button>
         <button onClick={click} id='open-retangulo'>Ver Desenhar retangulo</button>
         <button onClick={click} id='open-cafe'>Ver Calcular Café</button>
+        <button onClick={click} id='open-media'>Ver Media Turma</button>
       </div>
     </div>
   );

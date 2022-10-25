@@ -148,3 +148,40 @@ export const calcularCafe = (n, l, d) => {
         console.log(err.message)
     }
 }
+
+export const Alunos = function (qtd) {
+    this.qtdAlunos = qtd;
+    this.alunos = [];
+    this.media = 0;
+    for (let i = 0; i < this.qtdAlunos; i++)
+        this.alunos.push(0);
+    
+    this.quantidadeAlunos = function () {
+        return this.qtdAlunos;
+    }
+    this.mediaAlunos = function () {
+        return this.alunos;
+    }
+    this.inserirMediaAluno = function (aluno, media) {
+        this.alunos[aluno] = media;
+        let newMedia = 0;
+        for (let i = 0; i < this.qtdAlunos; i++)
+            newMedia+=this.alunos[i];
+            newMedia/=this.qtdAlunos;
+            this.media = newMedia;
+    }
+    this.obterMedia = function() {
+        return this.media.toFixed(2);
+    }
+    this.obterMediaAluno = function (aluno) {
+        return this.alunos[aluno]
+    }
+}
+
+// let turma = new Alunos(15);
+// console.log(turma.quantidadeAlunos())
+// console.log(turma.mediaAlunos())
+// turma.inserirMediaAluno(2, 10,5,8,10)
+// console.log(turma.obterMedia())
+// console.log(turma)
+// console.log(turma.obterMediaAluno(2))
